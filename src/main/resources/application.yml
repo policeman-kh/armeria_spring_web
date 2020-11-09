@@ -1,0 +1,13 @@
+spring:
+  thymeleaf:
+    mode: HTML
+    cache: false
+    prefix: file:src/main/resources/templates/
+
+# For armeria spring integration.
+# Prevent the embedded Tomcat from opening a TCP/IP port.
+server.port: -1
+armeria:
+  ports:
+    - port: 8080
+      protocol: HTTP
