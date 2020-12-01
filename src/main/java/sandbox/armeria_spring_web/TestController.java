@@ -11,4 +11,16 @@ public class TestController {
         return new ModelAndView("index")
                 .addObject("msg", "Hello world.");
     }
+
+    @GetMapping("long_execution")
+    public ModelAndView longExecution(){
+        // The codes to reproduce response time out error.
+        try {
+            Thread.sleep(50_000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return new ModelAndView("index")
+                .addObject("msg", "Hello world.");
+    }
 }
